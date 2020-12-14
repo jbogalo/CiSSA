@@ -29,7 +29,7 @@ function [Z, psd] = cissa(x,L,varargin)
 %
 % -------------------------------------------------------------------------
 % References:
-% [1] BÃ³galo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
+% [1] Bógalo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
 %     Analysis: A new automated procedure for signal extraction". Signal
 %     Processing. Vol. 179, 2021, in progress.
 %     https://doi.org/10.1016/j.sigpro.2020.107824.
@@ -52,14 +52,14 @@ end
 if nargin>2
     switch varargin{1}
         case 1
-            K = T;
+            H = T;
         case 2
-            K = 0;
+            H = 0;
         otherwise
-            K = L;
+            H = L;
     end
 else
-    K = L;
+    H = L;
 end
 
 % Number of symmetryc frequency pairs around 1/2
@@ -76,7 +76,7 @@ nft = nf2+abs(mod(L,2)-2);
 % Trajectory matrix
 % -------------------------------------------------------
 % Extended series
-xe = extend(x,K);
+xe = extend(x,H);
 
 % Trajectory matrix
 col = xe(1:L);
@@ -129,7 +129,7 @@ W = U'*X;
 % Reconstruction
 % -------------------------------------------------------
 % Elementary reconstructed series
-R = zeros(T+2*K,L);
+R = zeros(T+2*H,L);
 for k=1:L
     R(:,k) = diagaver(U(:,k)*W(k,:));
 end
@@ -138,7 +138,7 @@ end
 % Grouping by frequency
 % -------------------------------------------------------
 % Elementary reconstructed series by frequency
-Z = zeros(T+2*K,nft);
+Z = zeros(T+2*H,nft);
 Z(:,1) = R(:,1);
 for k=1:nf2
     Z(:,k+1) = R(:,k+1)+R(:,L+2-(k+1));
@@ -146,4 +146,4 @@ end
 if ~mod(L,2)
     Z(:,nft) = R(:,nft);
 end
-Z = Z(K+1:end-K,:);
+Z = Z(H+1:end-H,:);
