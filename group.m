@@ -11,7 +11,7 @@ function [rc, sh, kg] = group(Z,psd,I)
 % Z:   Matrix whose columns are the reconstructed components by frequency
 %      obtained with CiSSA.
 % psd: Column vector with the estimated power spectral density at
-%      frequencies w(k)=(k-1)/L, k=1,2,...,L/2 obtained with CiSSA.
+%      frequencies w(k)=(k-1)/L, k=1,2,...,L, obtained with CiSSA.
 % I:   Four options:
 %      1) A positive integer. It is the number of data per year in
 %      economic time series. The function automatically computes the
