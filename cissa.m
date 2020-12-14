@@ -13,21 +13,23 @@ function [Z, psd] = cissa(x,L,varargin)
 % x: Columm vector containing the time series original data.
 % L: Window length.
 % H: Optional. Related to the characteristics of the time series.
-%    H=0 (default) for time series with a stochastic trend
-%    H=1 for AM-FM signals
-%    H=2 for deterministic time series
+%    H=0 Autoregressive extension (default). It is indicated for stationary
+%        and stochastic trend time series as well.
+%    H=1 Mirroing. It can be used with stationary time series and works
+%        well for AM-FM signals.
+%    H=2 No extension. It is suitable for deterministic time series.
 %
 % Output arguments:
 % Z:   Matrix whose columns are the reconstructed components by frequency.
 % psd: Column vector with the estimated power spectral density at
-%      frequencies w(k)=(k-1)/L, k=1,2,...,L/2. This is, the eigenvalues of
+%      frequencies w(k)=(k-1)/L, k=1,2,...,L. This is, the eigenvalues of
 %      the circulant matrix of second moments.
 %
 % See also: group
 %
 % -------------------------------------------------------------------------
 % References:
-% [1] Bógalo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
+% [1] BÃ³galo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
 %     Analysis: A new automated procedure for signal extraction". Signal
 %     Processing. Vol. 179, 2021, in progress.
 %     https://doi.org/10.1016/j.sigpro.2020.107824.
