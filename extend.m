@@ -23,11 +23,11 @@ T = length(x);
 switch H
     case 0      % No extension
         xe = x;
-    case T      % Mirroing
+    case T      % Mirroring
         xe = [flipud(x(1:H)); x; flipud(x(end-H+1:end))];
     otherwise   % Autoregressive extension
         % AR coefficients of the differentiated series
-        p = fix(T/2);
+        p = fix(T/3);
         dx = diff(x);
         A = aryule(dx,p);
         % Right extension
