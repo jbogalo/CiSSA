@@ -15,7 +15,7 @@ function [Z, psd] = cissa(x,L,varargin)
 % H: Optional. Related to the characteristics of the time series.
 %    H=0 Autoregressive extension (default). It is indicated for stationary
 %        and stochastic trend time series as well.
-%    H=1 Mirroing. It can be used with stationary time series and works
+%    H=1 Mirroring. It can be used with stationary time series and works
 %        well for AM-FM signals.
 %    H=2 No extension. It is suitable for deterministic time series.
 %
@@ -29,7 +29,7 @@ function [Z, psd] = cissa(x,L,varargin)
 %
 % -------------------------------------------------------------------------
 % References:
-% [1] Bógalo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
+% [1] BÃ³galo, J., Poncela, P., and Senra, E. "Circulant Singular Spectrum
 %     Analysis: A new automated procedure for signal extraction". Signal
 %     Processing. Vol. 179, 2021, in progress.
 %     https://doi.org/10.1016/j.sigpro.2020.107824.
